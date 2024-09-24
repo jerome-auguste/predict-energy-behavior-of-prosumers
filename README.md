@@ -6,8 +6,6 @@ Personnal analysis and solution for a [Kaggle Challenge](https://www.kaggle.com/
 
 ## Data sctructure and relationship
 
-After introductory analysis, the data is structured as follows:
-
 ```mermaid
 erDiagram
     test {
