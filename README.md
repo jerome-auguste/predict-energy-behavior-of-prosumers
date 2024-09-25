@@ -33,9 +33,9 @@ erDiagram
         float snowfall
         float surface_pressure
         int cloud_cover_total
-        int xcloud_cover_low
-        int xcloud_cover_mid
-        int xcloud_cover_high
+        int cloud_cover_low
+        int cloud_cover_mid
+        int cloud_cover_high
         float windspeed_10m
         int winddirection_10m
         float shortwave_radiation
@@ -77,9 +77,11 @@ erDiagram
     test |{--|| client : "identifies (county x product_type x is_business)"
     historical_weather |{--|| test : "locates (latitude x longitude <-> county)"
     forecast_weather |{--|| test : "locates (latitude x longitude <-> county)"
-    electricity_price |{--|| test : "applies (prediction_datetime = forecast_datetime)"
-    gas_prices |{--|| test : "applies (prediction_datetime = forecast_datetime)"
-
+    electricity_price |{--|| test : "predicts (prediction_datetime = forecast_datetime)"
+    gas_prices |{--|| test : "predicts (prediction_datetime = forecast_datetime)"
+    historical_weather ||--|| forecast_weather : "Equal columns (latitude, longitude, dewpoint, snowfall, cloudcover_xxx, direct_solar_radiation)"
+    historical_weather ||--|| forecast_weather : "Equivalent (winspeed_10m, winddirection_10m <-> _10_metre_u_wind_component, _10_metre_v_wind_component)"
+    historical_weather ||--|| forecast_weather : "Equivalent (direct_solar_radiation, surface_solar_radiation_downwards <-> direct_solar_radiation, shortwave_radiation, diffuse_radiation)??"
 ```
 Notes:
 - Compared to test, train has a `target` which is the value to predict either for consumption or production
