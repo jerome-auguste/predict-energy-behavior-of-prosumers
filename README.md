@@ -79,13 +79,13 @@ erDiagram
     forecast_weather |{--|| test : "locates (latitude x longitude <-> county)"
     electricity_price |{--|| test : "predicts (prediction_datetime = forecast_datetime)"
     gas_prices |{--|| test : "predicts (prediction_datetime = forecast_datetime)"
-    historical_weather ||--|| forecast_weather : "Equal columns (latitude, longitude, dewpoint, snowfall, cloudcover_xxx, direct_solar_radiation)"
-    historical_weather ||--|| forecast_weather : "Equivalent (winspeed_10m, winddirection_10m <-> _10_metre_u_wind_component, _10_metre_v_wind_component)"
-    historical_weather ||--|| forecast_weather : "Equivalent (direct_solar_radiation, surface_solar_radiation_downwards <-> direct_solar_radiation, shortwave_radiation, diffuse_radiation)??"
 ```
 Notes:
 - Compared to test, train has a `target` which is the value to predict either for consumption or production
 - The column `prediction_datetime` in test dataframe corresponds to the `datetime` column in train
+- Historical weather and forecast weather dataframes share similar columns: `latitude`, `longitude`, `dewpoint`, `snowfall`, `cloudcover_xxx` and `direct_solar_radiation`
+- Historical weather and forecast weather dataframes share wind data with different conventions (polar coordinates vs cartesian coordinates): (`windspeed_10m`, `winddirection_10m`) = (`_10_metre_u_wind_component`, `_10_metre_v_wind_component`)
+- Historical weather and foraecast weather dataframes share solar radiation data with different conventions but since description is not clear enough, we assume that: `surface_solar_radioation_downwards` = `shortwave_radiation` + `diffuse_radiation`
 
 
 ## TODO
