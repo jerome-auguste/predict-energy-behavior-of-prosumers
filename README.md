@@ -100,7 +100,7 @@ Notes:
 - [ ] PCA
 
 #### Feature engineering
-- [ ] Average weather data to the entire Estonia
+- [ ] Average weather data to the related county using `weather_station_to_county_mapping.csv`
 - [ ] Remove `origin_datetime` in electricity_price, gas_prices and forecast_weather
 - [ ] Remove `dewpoint`, `rain`, `surface_pressure`, `cloudcover_high`, `cloudcover_low`, `cloudcover_mid`, `total_precipitation` in historical_weather and forecast_weather
 - [ ] List and remove useless columns for a first version and list columns that could help improve in further versions
@@ -122,7 +122,6 @@ Notes:
 - [ ] Check historical vs forecast weather data
 
 #### Feature engineering
-- [ ] Map county names to latitude and longitude ranges (approximately)
 - [ ] Use local forecast weather data instead of average one
 - [ ] Include historical weather data
 - [ ] Reencode `product_type` to a more relevant way like onehot (cf Kaggle description `{0: "Combined", 1: "Fixed", 2: "General service", 3: "Spot"}`)
