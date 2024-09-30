@@ -156,6 +156,7 @@ cython_debug/
 
 # Data
 **/data/ 
+**/predict-energy-behavior-of-prosumers/
 
 # MacOS indexing file
 .DS_Store
