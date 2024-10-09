@@ -1,3 +1,4 @@
+ipykernel
 pandas==2.2.3
 pandas-stubs
-ipykernel
+pre-commit

@@ -155,7 +155,7 @@ dmypy.json
 cython_debug/
 
 # Data
-**/data/ 
+**/data/
 **/predict-energy-behavior-of-prosumers/
 
 # MacOS indexing file
